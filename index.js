@@ -10,7 +10,17 @@ async function searchQuery(query){
 }
 
 app.get('/', function(req,res){
-    res.send('Hello World');
+    res.setHeader('Content-Type', 'application/json');
+    const query = req.query['key'];
+    if(query){
+        go.search(query).then((result)=>{
+            res.send(JSON.stringify(result));
+        })
+    }else{
+        res.send(JSON.stringify([]))
+    }
+
+    
 })
 app.listen(port,()=>{
     console.log(`Listen to http://localhost:${port}`)
