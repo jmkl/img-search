@@ -11,8 +11,9 @@ async function searchQuery(query){
 
 app.get('/', function(req,res){
     res.setHeader('Content-Type', 'application/json');
-    const query = req.query['key'];
-    if(query){
+    const query = req.query.key;
+
+    if(query!=null){
         go.search(query).then((result)=>{
             res.send(JSON.stringify(result));
         })
