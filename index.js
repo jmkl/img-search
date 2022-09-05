@@ -18,7 +18,7 @@ app.get('/', function(req,res){
             res.send(JSON.stringify(result));
         })
     }else{
-        res.send(JSON.stringify([]))
+        res.send(JSON.stringify([{result:null}]))
     }
 
     
